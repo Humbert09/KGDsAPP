@@ -1,48 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="head">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <title>KGDs</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:replace="fragments :: title">Página Inicial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="index">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="mostrar">Operadores</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="nuevo">Agregar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="modificar">Modificar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="eliminar">Eliminar</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<h1>Bienvenido a la página de KGD</h1>
 
+<!-- Navbar -->
+<div th:replace="fragments :: navbar"></div>
 
-<footer th:fragment="footer">KGDs aplicación web</footer>
-<div th:fragment="jsincludes">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<!-- Contenido específico -->
+<div class="container mt-4">
+    <section class="mb-4">
+        <p>
+            Este proyecto tiene como objetivo implementar Spring MVC + Thymeleaf para hacer Operaciones CRUD, cda miembro tiene su propio apartado con cada tema a su eleccion, disfrutenlo
+        </p>
+    </section>
+
+    <section class="d-flex flex-wrap justify-content-start">
+        <div th:replace="fragments :: card('Eder', 'Podras ver cualquier piloto de la Formula 1, podras agregar cualquiera a tu eleccion', 'https://scontent.fmex31-1.fna.fbcdn.net/v/t39.30808-6/487224655_1418168012840027_3833618772903340169_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=nf3PjtLE3r0Q7kNvwEzBU35&_nc_oc=AdlyiVuRVQkyN5OBFmlH3ifrXvx3L4uQlvEn3Ag8weSnuSEMEBZdpPUPK9vzW5GJ8_tsSM5_pWHlt_LpjC2GCauQ&_nc_zt=23&_nc_ht=scontent.fmex31-1.fna&_nc_gid=5jg7KyIotFba4lMVBAcZCA&oh=00_AfI12it-DBxdPP92uD8tz0EortHvYr_01Zz3ehhpZMeA_Q&oe=68469EE3')"></div>
+        <div th:replace="fragments :: card('Beto', 'Editalo', 'https://scontent.fmex5-1.fna.fbcdn.net/v/t39.30808-6/474886867_620911000397345_9077503635538134488_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=TX18jdb8yFUQ7kNvwETJf42&_nc_oc=AdldhzEdyzHWVz3Oqa7SxhgPWbYRpTVkTe6LimpsKMEpJWukZgp2dvMF-Xn5wmm3cvcxSD777GQRYYjEcwsqgKE3&_nc_zt=23&_nc_ht=scontent.fmex5-1.fna&_nc_gid=7lTiVV9NHXeljWhEzFAdng&oh=00_AfLeQVr95mmdfwVM0zy4L8zfHS3BjRCS86M8e3_wawKPdQ&oe=68469CFB')"></div>
+        <div th:replace="fragments :: card('Diego', 'Editalo', 'https://scontent.fmex5-1.fna.fbcdn.net/v/t39.30808-6/277109984_2264688573679665_2800872197755126998_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=YyYL9AJ0GJ8Q7kNvwE4LXCT&_nc_oc=AdlNEV4PpyKnaLDJrM7dNFECvig7XP6BBOHCiiPTyTW0qn2hkLSydQbYlV7ABjoE9_EdhpqZ-OhCwQTiBJx9s208&_nc_zt=23&_nc_ht=scontent.fmex5-1.fna&_nc_gid=1QsXQetSTKt_G9l2LbLmhw&oh=00_AfI2kvCapj-4KiiQiep582riuhN_9XN7o9VNwKSXHJEsqA&oe=68468054')"></div>
+    </section>
 </div>
+
+<!-- Footer -->
+<div th:replace="fragments :: footer"></div>
+
+<!-- Scripts -->
+<div th:replace="fragments :: scripts"></div>
+
 </body>
 </html>
