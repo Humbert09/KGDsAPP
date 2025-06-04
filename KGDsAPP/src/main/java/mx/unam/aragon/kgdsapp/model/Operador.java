@@ -1,9 +1,19 @@
 package mx.unam.aragon.kgdsapp.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+import java.util.Locale;
 import java.util.Objects;
 
+@Entity
 public class Operador {
-    private int id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nombre;
     private String fechaNacimiento;
     private String organizacion;
@@ -15,7 +25,7 @@ public class Operador {
     public Operador() {
     }
 
-    public Operador(int id, String nombre, String fechaNacimiento, String organizacion, String bando, int salud, int velocidad, String pfp) {
+    public Operador(Long id, String nombre, String fechaNacimiento, String organizacion, String bando, int salud, int velocidad, String pfp) {
         this.id = id;
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
@@ -26,11 +36,11 @@ public class Operador {
         this.pfp = pfp;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
