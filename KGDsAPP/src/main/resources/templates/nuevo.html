@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="index :: head">
+    <meta charset="utf-8">
+   }<title>Nuevo operador</title>
+</head>
+<body>
+<div th:replace="index :: navbar"></div>
+<h1>Crea un operador nuevo</h1>
+<p class="bg-sucess" th:if="${param.exito}"> Operador registrado con exito</p>
+<hr>
+<div class="container mt-5">
+
+<form th:fragment="form" th:action="@{/guardar}" th:object="${operador}" th:method="post">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input type="nombre" th:field="*{nombre}" class="form-control" id="nombre" aria-describedby="nombreHelp">
+    </div>
+    <div class="mb-3">
+        <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
+        <input type="fechaNacimiento" th:field="*{fechaNacimiento}" class="form-control" id="fechaNacimiento">
+    </div>
+    <div class="mb-3">
+        <label for="organizacion" class="form-label">Organizacion:</label>
+        <input type="organizacion" th:field="*{organizacion}" class="form-control" id="organizacion">
+    </div>
+    <div class="mb-3">
+        <label for="bando" class="form-label">Bando:</label>
+        <input type="bando" th:field="*{bando}" class="form-control" id="bando">
+    </div>
+    <div class="mb-3">
+        <label for="salud" class="form-label">Salud:</label>
+        <input type="salud" th:field="*{salud}" class="form-control" id="salud">
+    </div>
+    <div class="mb-3">
+        <label for="velocidad" class="form-label">Velocidad:</label>
+        <input type="velocidad" th:field="*{velocidad}" class="form-control" id="velocidad">
+    </div>
+    <div class="mb-3">
+        <label for="pfp" class="form-label">Foto(URL):</label>
+        <input type="pfp" th:field="*{pfp}" class="form-control" id="pfp">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+<footer th:replace="index :: footer"></footer>
+<div th:replace="index :: jsincludes"></div>
+</body>
+</html>
