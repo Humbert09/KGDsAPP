@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/eder/index :: head">
+<head th:replace="fragments :: head">
     <meta charset="UTF-8">
     <title>Temas-Artista</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
-<nav th:replace="/eder/index :: navbar"></nav>
+<nav th:replace="fragments :: navbar"></nav>
 
 
 <div class="container mt-5">
@@ -21,7 +21,7 @@
     </main>
 </div>
 
-<footer th:replace="/eder/index :: footer"></footer>
-<div th:replace="/eder/index :: jsincludes"></div>
+<footer th:replace="fragments :: footer"></footer>
+<div th:replace="fragments :: scripts"></div>
 </body>
 </html>

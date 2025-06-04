@@ -48,4 +48,24 @@ public class F1Controller {
         model.addAttribute("piloto", pilotoService.getPiloto(id));
         return "/eder/piloto";
     }
+
+    @GetMapping("/editar/{id}")
+    public String editar(@PathVariable Integer id, Model model) {
+        Piloto piloto = pilotoService.getPiloto(id);
+        model.addAttribute("piloto", piloto);
+        return "editarPiloto";
+    }
+
+    @PostMapping("/actualizar")
+    public String actualizar(@ModelAttribute Piloto piloto) {
+        pilotoService.guardarPiloto(piloto);
+        return "redirect:/paddock/home";
+    }
+
+    @GetMapping("/eliminar/{id}")
+    public String eliminar(@PathVariable Integer id, Model model) {
+        Piloto piloto = pilotoService.getPiloto(id);
+        model.addAttribute("piloto", piloto);
+        return "confirmarEliminar";
+    }
 }
