@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Guardar Piloto</title>
+</head>
+<body>
+
+<p class="text-success" th:if="${param.exito}"> Piloto dado de alta exitosamente</p>
+<hr>
+<form th:action="@{/paddock/guardar}" th:object="${piloto}" th:method="post">
+    <label>Piloto: </label> <input type="text"
+                                   name="nombre" id="nombre" th:field="*{nombre}">
+    <label>Equipo: </label> <input type="text"
+                                   name="equipo" id="equipo" th:field="*{equipo}">
+    <label>Edad: </label> <input type="text"
+                                   name="edad" id="edad" th:field="*{edad}">
+    <label>Numeor de competicion: </label> <input type="text"
+                                   name="numero" id="numero" th:field="*{numero}">
+    <label>Imagen(url): </label> <input type="text"
+                                   name="imagen" id="imagen" th:field="*{imagen}">
+
+    <button type="submit">Enviar</button>
+</form>
+
+</body>
+</html>
