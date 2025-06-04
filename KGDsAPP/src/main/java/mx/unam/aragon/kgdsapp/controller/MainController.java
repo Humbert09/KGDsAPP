@@ -2,7 +2,9 @@ package mx.unam.aragon.kgdsapp.controller;
 
 
 import mx.unam.aragon.kgdsapp.model.Operador;
+import mx.unam.aragon.kgdsapp.service.OperadorService;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,9 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/")
 public class MainController {
+
+    @Autowired
+    private OperadorService operadorService;
 
     @GetMapping()
     public String index() {
@@ -39,7 +44,9 @@ public class MainController {
             @ModelAttribute Operador operador
     ) {
         LoggerFactory.getLogger(getClass()).info("Guardado exitosamente" + operador);
-     return "redirect:/nuevo?exito";
+        //Guardar en DB
+        operadorService.guardarOperador(operador);
+        return "redirect:/nuevo?exito";
     }
 
     @GetMapping("modificar")
@@ -51,4 +58,6 @@ public class MainController {
     public String eliminar() {
         return "eliminar";
     }
+
+
 }
