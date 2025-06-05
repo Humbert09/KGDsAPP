@@ -32,7 +32,7 @@ public class R6Controller {
 
     @GetMapping("/nuevo")
     public String nuevo(Model model) {
-        model.addAttribute("operador", new Operador());
+        model.addAttribute("operador", new Operador(1, "Vigil", "Defensor", "Don't worry about me. I was never here", 34, "https://th.bing.com/th/id/R.48a7940cbb6d212b0121d97d617f570a?rik=rhWayVvne8dw9A&riu=http%3a%2f%2fpm1.narvii.com%2f7283%2fc330bb1e3a9853fd9779dea5282e16d4a800c9b2r1-499-614v2_uhq.jpg&ehk=DFCp%2bEzEXMhAkiCXkfKLtqunmv11ZjndiN1Zi1v7GKc%3d&risl=&pid=ImgRaw&r=0"));
         return "r6/nuevoOperador";
     }
 

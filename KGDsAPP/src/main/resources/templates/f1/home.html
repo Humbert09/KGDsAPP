@@ -15,20 +15,19 @@
 </div>
 
 
-<div class="container mt-4">
-    <h1>Pilotos en el Paddock</h1>
-    <div class="d-flex flex-wrap justify-content-center">
-        <div th:each="piloto : ${pilotos}">
-            <div th:replace="fragments :: card(
+<div class="d-flex flex-wrap justify-content-center">
+    <div th:each="piloto : ${pilotos}">
+        <div th:replace="fragments :: cardPiloto(
             titulo=${piloto.nombre + ' (' + piloto.equipo + ')'},
             descripcion=${piloto.descripcion},
             imagen=${piloto.imagen},
-            acciones=${'&lt;a href=&quot;/paddock/editar/' + piloto.id + '&quot; class=&quot;btn btn-sm btn-primary me-2&quot;&gt;Editar&lt;/a&gt;' +
-                  '&lt;a href=&quot;/paddock/eliminar/' + piloto.id + '&quot; class=&quot;btn btn-sm btn-danger&quot;&gt;Eliminar&lt;/a&gt;'}
+            acciones=${'&lt;a href=&quot;/paddock/editar/' + piloto.id + '&quot; class=&quot;btn btn-sm btn-light me-2&quot;&gt;Editar&lt;/a&gt;' +
+                      '&lt;a href=&quot;/paddock/eliminar/' + piloto.id + '&quot; class=&quot;btn btn-sm btn-outline-light&quot;&gt;Eliminar&lt;/a&gt;'},
+            equipo=${piloto.equipo}
         )"></div>
-        </div>
     </div>
 </div>
+
 
 
 <div th:replace="fragments :: footer"></div>

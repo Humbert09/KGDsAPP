@@ -27,14 +27,14 @@ public class FutbolistaController {
 
     @GetMapping("/jugador")
     public String jugador(Model model) {
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(1, "Lionel Andrés Messi Cuccittini", "MiamiFc", "El mejor jugador del mundo", 37, 10, "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg/250px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg");
         model.addAttribute(jugador);
         return "/futbol/jugador";
     }
 
     @GetMapping("/nuevo")
     public String nuevo(Model model) {
-        model.addAttribute("jugador", new Jugador());
+        model.addAttribute("jugador", new Jugador(1, "Lionel Andrés Messi Cuccittini", "MiamiFc", "El mejor jugador del mundo", 37, 10, "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg/250px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg"));
         return "futbol/formJugador";
     }
 

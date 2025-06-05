@@ -20,6 +20,7 @@
                 <li class="nav-item"><a class="nav-link" href="/paddock/home">Fórmula 1</a></li>
                 <li class="nav-item"><a class="nav-link" href="/r6/home">Rainbow 6</a></li>
                 <li class="nav-item"><a class="nav-link" href="/futbol/home">Futbol</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
             </ul>
         </div>
     </div>
@@ -49,7 +50,7 @@
             <!-- Contacto -->
             <div class="col-md-4 mb-3">
                 <h5 class="text-uppercase">Contacto</h5>
-                <p class="mb-1"><strong>Email:</strong> kgdwebapplication@outlook.com</p>
+                <p class="mb-1"><strong>Email:</strong>  contacto@kgds.dev</p>
                 <p class="mb-1"><strong>Tel:</strong> +52 123 456 7890</p>
                 <p><strong>GitHub:</strong> <a class="text-white text-decoration-none">/kgdapp</a></p>
             </div>
@@ -73,6 +74,34 @@
 <div th:fragment="card(titulo, descripcion, imagen)">
     <div class="card m-2" style="width: 18rem;">
         <img th:src="${imagen}" class="card-img-top" alt="Imagen de card">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${titulo}">Título</h5>
+            <p class="card-text" th:text="${descripcion}">Descripción</p>
+
+            <div th:if="${acciones != null}">
+                <div th:utext="${acciones}"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div th:fragment="cardPiloto(titulo, descripcion, imagen, acciones, equipo)">
+    <div class="card m-2 text-white"
+         style="width: 18rem;"
+         th:classappend="${equipo == 'Red Bull' ? ' bg-primary' :
+                         equipo == 'Mercedes' ? ' bg-secondary' :
+                         equipo == 'Ferrari' ? ' bg-danger' :
+                         equipo == 'McLaren' ? ' bg-warning text-dark' :
+                         equipo == 'Alpine' ? ' bg-info text-dark' :
+                         equipo == 'Aston Martin' ? ' bg-success' :
+                         equipo == 'Williams' ? 'bg-light text-dark' :
+                         equipo == 'Kick Sauber' ? ' bg-danger' :
+                         equipo == 'Haas' ? '  bg-dark' :
+                         equipo == 'Racing Bulls' ? 'bg-primary bg-gradient text-white' :
+                          ' bg-dark'}">
+        <img th:src="${imagen}" class="card-img-top" alt="Imagen del piloto">
         <div class="card-body">
             <h5 class="card-title" th:text="${titulo}">Título</h5>
             <p class="card-text" th:text="${descripcion}">Descripción</p>

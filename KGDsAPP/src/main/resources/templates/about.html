@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<!-- Navbar -->
+<nav th:replace="fragments :: navbar"></nav>
+
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1>Sobre Nosotros</h1>
+        <p class="lead">Pasión por la tecnología</p>
+    </div>
+
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+            <img src="https://www.gaceta.unam.mx/wp-content/uploads/2020/10/201008-Gob2-des-FES-Aragon.jpg" alt="Fórmula 1" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6">
+            <h3>Nuestra Historia</h3>
+            <p>
+                KGDs es una aplicación hecha uniendo nuestros intereses, asi podemos ofrecer mas de una tabla para su manipulamiento
+            </p>
+        </div>
+    </div>
+
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6 order-md-2">
+            <img src="https://img.freepik.com/vector-gratis/grupo-usuarios-circulo-esquema_78370-4712.jpg?w=740&t=st=1708488890~exp=1708489490~hmac=7b8c18d58bafe604f41939e2742ddd256296c56ce4ae57c3981013e295f73a15" alt="Nuestro equipo" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6 order-md-1">
+            <h3>El Equipo</h3>
+            <p>
+                Somos Diego, Beto y Eder. Cada uno desarrolló una sección diferente del sitio, desde fútbol hasta automovilismo.
+                Esta app es el resultado de colaboración, aprendizaje y muchas horas de desarrollo.
+            </p>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <h4>¿Tienes sugerencias o ideas?</h4>
+        <p>Contáctanos a través del correo: <strong>contacto@kgds.dev</strong></p>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer th:replace="fragments :: footer"></footer>
+
+<!-- Scripts -->
+<div th:replace="fragments :: scripts"></div>
+</body>
+</html>

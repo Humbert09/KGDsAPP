@@ -11,7 +11,7 @@ public class Jugador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "nombre_jugador", nullable = false, length = 100)
+    @Column(name = "nombre_jugador", nullable = false, length = 150)
     private String nombre;
     @Column(name = "equipo", nullable = false, length = 50)
     private String equipo;
@@ -21,7 +21,7 @@ public class Jugador {
     private Integer edad;
     @Column(name = "numero", nullable = true)
     private Integer numero;
-    @Column(name = "url_foto", nullable = true, insertable = true, columnDefinition = "")
+    @Column(name = "url_foto", nullable = true, insertable = true, columnDefinition = "", length = 450)
     private String imagen;
 
     public Jugador() {

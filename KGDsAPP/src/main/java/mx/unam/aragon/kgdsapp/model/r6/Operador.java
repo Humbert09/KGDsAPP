@@ -15,7 +15,7 @@ public class Operador {
     private String nombre;
     @Column(name = "equipo", nullable = false, length = 50)
     private String equipo;
-    @Column(name = "descripcion", nullable = false, length = 50)
+    @Column(name = "descripcion", nullable = false, length = 450)
     private String descripcion;
     @Column(name = "edad", nullable = false)
     private int edad;

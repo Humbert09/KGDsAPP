@@ -24,8 +24,21 @@
 
                 <div class="mb-3">
                     <label for="equipo" class="form-label">Equipo</label>
-                    <input type="text" class="form-control" id="equipo" th:field="*{equipo}" required>
+                    <select class="form-select" id="equipo" th:field="*{equipo}" required>
+                        <option value="" disabled selected>-- Selecciona un equipo --</option>
+                        <option value="Red Bull">Red Bull</option>
+                        <option value="Mercedes">Mercedes</option>
+                        <option value="Ferrari">Ferrari</option>
+                        <option value="McLaren">McLaren</option>
+                        <option value="Alpine">Alpine</option>
+                        <option value="Aston Martin">Aston Martin</option>
+                        <option value="Williams">Williams</option>
+                        <option value="Kick Sauber">Kick Sauber</option>
+                        <option value="Haas">Haas</option>
+                        <option value="Racing Bulls">Racing Bulls</option>
+                    </select>
                 </div>
+
 
                 <div class="mb-3">
                     <label for="descripcion" class="form-label">Descripcion</label>
