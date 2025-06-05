@@ -42,9 +42,13 @@ Este repositorio contiene el desarrollo de una aplicación web basada en Spring 
 
     Abre el proyecto en tu IDE favorito (IntelliJ, Eclipse, VS Code).
 
+    Crear la Db con nombre: kgdsdb
+
     Ejecuta la aplicación desde la clase main con Spring Boot.
 
     Accede desde tu navegador en: http://localhost:8080
+
+    Despues de ejecutarlo por primera vez, en Aplication.properties cambiar spring.jpa.hibernate.ddl-auto=create a spring.jpa.hibernate.ddl-auto=update
 
 👥 Autores
 
