@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head">
+    <meta charset="UTF-8">
+    <title>Temas-Artista</title>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<nav th:replace="fragments :: navbar"></nav>
+
+
+<div class="container mt-5">
+    <main class="flex-fill">
+        <div class="card" style="width: 18rem;">
+            <img th:src="${piloto.imagen}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${piloto.nombre}">Card title</h5>
+                <p class="card-text" th:text="${piloto.equipo}">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                <a href="#" class="btn btn-primary">Descubrir su mejor carrera</a>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer th:replace="fragments :: footer"></footer>
+<div th:replace="fragments :: scripts"></div>
+</body>
+</html>
