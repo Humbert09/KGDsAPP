@@ -26,14 +26,14 @@ public class F1Controller {
 
     @GetMapping("/piloto")
     public String piloto(Model model) {
-        Piloto piloto = new Piloto(1,"Oscar Piastri", "Mclaren",24, 81, "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Oscar_Piastri.png/330px-Oscar_Piastri.png");
+        Piloto piloto = new Piloto(1,"Oscar Piastri", "Mclaren"," Desde 2023 es piloto de McLaren en Fórmula 1, con la cual logró su primer podio en su año debut en el Gran Premio de Japón, primera victoria en el Gran Premio de Hungría de 2024, y primera pole position en el Gran Premio de China de 2025.",24, 81, "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Oscar_Piastri.png/330px-Oscar_Piastri.png");
         model.addAttribute(piloto);
         return "/eder/piloto";
     }
 
     @GetMapping("/nuevo")
     public String nuevo(Model model) {
-        model.addAttribute("piloto", new Piloto(1,"Oscar Piastri", "Mclaren",24, 81, "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Oscar_Piastri.png/330px-Oscar_Piastri.png"));
+        model.addAttribute("piloto", new Piloto(1,"Oscar Piastri", "Mclaren"," Desde 2023 es piloto de McLaren en Fórmula 1, con la cual logró su primer podio en su año debut en el Gran Premio de Japón, primera victoria en el Gran Premio de Hungría de 2024, y primera pole position en el Gran Premio de China de 2025.",24, 81, "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Oscar_Piastri.png/330px-Oscar_Piastri.png"));
         return "eder/formPiloto";
     }
 

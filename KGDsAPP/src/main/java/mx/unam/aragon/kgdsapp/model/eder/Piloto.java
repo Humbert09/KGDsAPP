@@ -15,6 +15,8 @@ public class Piloto {
     private String nombre;
     @Column(name = "equipo", nullable = false, length = 50)
     private String equipo;
+    @Column(name = "descripcion", nullable = false, length = 450)
+    private String descripcion;
     @Column(name = "edad", nullable = true)
     private Integer edad;
     @Column(name = "numero", nullable = true)
@@ -25,10 +27,11 @@ public class Piloto {
     public Piloto() {
     }
 
-    public Piloto(int id, String nombre, String equipo, Integer edad, Integer numero, String imagen) {
+    public Piloto(int id, String nombre, String equipo, String descripcion, Integer edad, Integer numero, String imagen) {
         this.id = id;
         this.nombre = nombre;
         this.equipo = equipo;
+        this.descripcion = descripcion;
         this.edad = edad;
         this.numero = numero;
         this.imagen = imagen;
@@ -56,6 +59,14 @@ public class Piloto {
 
     public void setEquipo(String equipo) {
         this.equipo = equipo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public Integer getEdad() {
@@ -87,12 +98,12 @@ public class Piloto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Piloto piloto = (Piloto) o;
-        return id == piloto.id && Objects.equals(nombre, piloto.nombre) && Objects.equals(equipo, piloto.equipo) && Objects.equals(edad, piloto.edad) && Objects.equals(numero, piloto.numero) && Objects.equals(imagen, piloto.imagen);
+        return id == piloto.id && Objects.equals(nombre, piloto.nombre) && Objects.equals(equipo, piloto.equipo) && Objects.equals(descripcion, piloto.descripcion) && Objects.equals(edad, piloto.edad) && Objects.equals(numero, piloto.numero) && Objects.equals(imagen, piloto.imagen);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, equipo, edad, numero, imagen);
+        return Objects.hash(id, nombre, equipo, descripcion, edad, numero, imagen);
     }
 
     @Override
@@ -101,6 +112,7 @@ public class Piloto {
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", equipo='" + equipo + '\'' +
+                ", descripcion='" + descripcion + '\'' +
                 ", edad=" + edad +
                 ", numero=" + numero +
                 ", imagen='" + imagen + '\'' +
