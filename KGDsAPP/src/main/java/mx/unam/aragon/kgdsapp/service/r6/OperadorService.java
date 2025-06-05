@@ -1,8 +1,7 @@
-package mx.unam.aragon.kgdsapp.service.humberto;
+package mx.unam.aragon.kgdsapp.service.r6;
 
-import mx.unam.aragon.kgdsapp.model.eder.Piloto;
-import mx.unam.aragon.kgdsapp.model.humberto.Operador;
-import mx.unam.aragon.kgdsapp.repositorie.humberto.OperadorRepositorie;
+import mx.unam.aragon.kgdsapp.model.r6.Operador;
+import mx.unam.aragon.kgdsapp.repositorie.r6.OperadorRepositorie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,13 +12,13 @@ public class OperadorService {
     @Autowired
     private OperadorRepositorie operadorRepositorie;
 
-    public boolean guardarOperador(Operador operador) {
-        Operador resultado = operadorRepositorie.save(operador);
-        return resultado != null;
+    public Operador guardarOperador(Operador operador) {
+        return operadorRepositorie.save(operador);
     }
 
+
     public Operador getOperador(Long id) {
-        return operadorRepositorie.getById(id);
+        return operadorRepositorie.findById(id).orElse(null);
     }
 
     public List<Operador> getAllOperadores() {

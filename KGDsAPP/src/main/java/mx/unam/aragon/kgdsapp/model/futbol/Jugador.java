@@ -1,4 +1,4 @@
-package mx.unam.aragon.kgdsapp.model.diego;
+package mx.unam.aragon.kgdsapp.model.futbol;
 
 import jakarta.persistence.*;
 
@@ -97,7 +97,7 @@ public class Jugador {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        mx.unam.aragon.kgdsapp.model.diego.Jugador jugador = (mx.unam.aragon.kgdsapp.model.diego.Jugador) o;
+        mx.unam.aragon.kgdsapp.model.futbol.Jugador jugador = (mx.unam.aragon.kgdsapp.model.futbol.Jugador) o;
         return id == jugador.id && Objects.equals(nombre, jugador.nombre) && Objects.equals(equipo, jugador.equipo) && Objects.equals(descripcion, jugador.descripcion) && Objects.equals(edad, jugador.edad) && Objects.equals(numero, jugador.numero) && Objects.equals(imagen, jugador.imagen);
     }
 

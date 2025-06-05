@@ -1,4 +1,4 @@
-package mx.unam.aragon.kgdsapp.model.eder;
+package mx.unam.aragon.kgdsapp.model.f1;
 
 import jakarta.persistence.*;
 

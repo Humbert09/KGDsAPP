@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head">
+  <title>Editar el Operador</title>
+</head>
+<body>
+<nav th:replace="fragments :: navbar"></nav>
+
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">Editar el Operador</h2>
+
+  <form th:action="@{/r6/actualizar}" th:object="${operador}" method="post" class="card p-4 shadow">
+    <input type="hidden" name="id" th:value="${operador.id}"/>
+
+    <div class="mb-3">
+      <label class="form-label">Nombre</label>
+      <input type="text" th:field="*{nombre}" class="form-control" placeholder="Nombre del operador" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Equipo</label>
+      <input type="text" th:field="*{equipo}" class="form-control" placeholder="Organización del Operador" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripcioón</label>
+      <input type="text" class="form-control" id="descripcion" th:field="*{descripcion}" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Edad</label>
+      <input type="number" th:field="*{edad}" class="form-control" placeholder="Edad del Operador">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">URL de la Foto</label>
+      <input type="url" th:field="*{imagen}" class="form-control" placeholder="https://...">
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <a th:href="@{/r6/home}" class="btn btn-secondary">Cancelar</a>
+      <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    </div>
+  </form>
+</div>
+
+<footer th:replace="fragments :: footer"></footer>
+<div th:replace="fragments :: scripts"></div>
+</body>
+</html>

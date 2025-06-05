@@ -1,7 +1,7 @@
-package mx.unam.aragon.kgdsapp.service.eder;
+package mx.unam.aragon.kgdsapp.service.f1;
 
-import mx.unam.aragon.kgdsapp.model.eder.Piloto;
-import mx.unam.aragon.kgdsapp.repositorie.eder.PilotoRepository;
+import mx.unam.aragon.kgdsapp.model.f1.Piloto;
+import mx.unam.aragon.kgdsapp.repositorie.f1.PilotoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

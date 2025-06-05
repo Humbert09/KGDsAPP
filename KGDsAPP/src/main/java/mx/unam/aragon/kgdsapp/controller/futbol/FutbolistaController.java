@@ -1,7 +1,7 @@
-package mx.unam.aragon.kgdsapp.diego;
+package mx.unam.aragon.kgdsapp.controller.futbol;
 
-import mx.unam.aragon.kgdsapp.model.diego.Jugador;
-import mx.unam.aragon.kgdsapp.service.diego.JugadorService;
+import mx.unam.aragon.kgdsapp.model.futbol.Jugador;
+import mx.unam.aragon.kgdsapp.service.futbol.JugadorService;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,20 +22,20 @@ public class FutbolistaController {
     public String home(Model model) {
         List<Jugador> jugadors = jugadorService.getAllJugadors();
         model.addAttribute("jugadores", jugadors);
-        return "/diego/home";
+        return "/futbol/home";
     }
 
     @GetMapping("/jugador")
     public String jugador(Model model) {
         Jugador jugador = new Jugador();
         model.addAttribute(jugador);
-        return "/diego/jugador";
+        return "/futbol/jugador";
     }
 
     @GetMapping("/nuevo")
     public String nuevo(Model model) {
         model.addAttribute("jugador", new Jugador());
-        return "diego/formJugador";
+        return "futbol/formJugador";
     }
 
     @PostMapping("/guardar")
@@ -50,14 +50,14 @@ public class FutbolistaController {
     @GetMapping("/jugador/{id}")
     public String jugador(@PathVariable Integer id, Model model){
         model.addAttribute("jugador", jugadorService.getJugador(id));
-        return "/diego/jugador";
+        return "/futbol/jugador";
     }
 
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable Integer id, Model model) {
         Jugador jugador = jugadorService.getJugador(id);
         model.addAttribute("jugador", jugador);
-        return "/diego/editarJugador";
+        return "/futbol/editarJugador";
     }
 
     @PostMapping("/actualizar")
@@ -70,7 +70,7 @@ public class FutbolistaController {
     public String eliminar(@PathVariable Integer id, Model model) {
         Jugador jugador = jugadorService.getJugador(id);
         model.addAttribute("jugador", jugador);
-        return "/diego/eliminar";
+        return "/futbol/eliminar";
     }
 
     @PostMapping("/eliminar")

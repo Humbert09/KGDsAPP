@@ -11,18 +11,19 @@
 <div th:replace="fragments :: navbar"></div>
 
 <div class="mb-3">
-  <a href="/r6/nuevo" class="btn btn-success">➕ Nuevo Operador</a>
+  <a th:href="@{/r6/nuevo}" class="btn btn-success">➕ Nuevo Operador</a>
 </div>
 
 
 <div class="container mt-4">
   <h1>Operadores Rainbow</h1>
   <div class="d-flex flex-wrap justify-content-center">
-    <div th:each="operador : ${operador}">
+    <div th:each="operador : ${operadors}">
       <div th:replace="fragments :: card(
-            titulo=${operador.nombre + ' (' + operador.bando + ')'},
-            organizacion=${operador.organizacion},
-            imagen=${operador.pfp},
+            titulo=${operador.nombre + ' (' + operador.equipo + ')'},
+            descripcion=${operador.descripcion},
+            edad=${operador.edad},
+            imagen=${operador.imagen},
             acciones=${'&lt;a href=&quot;/r6/editar/' + operador.id + '&quot; class=&quot;btn btn-sm btn-primary me-2&quot;&gt;Editar&lt;/a&gt;' +
                   '&lt;a href=&quot;/r6/eliminar/' + operador.id + '&quot; class=&quot;btn btn-sm btn-danger&quot;&gt;Eliminar&lt;/a&gt;'}
         )"></div>

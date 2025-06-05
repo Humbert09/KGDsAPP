@@ -1,8 +1,8 @@
-package mx.unam.aragon.kgdsapp.controller.eder;
+package mx.unam.aragon.kgdsapp.controller.f1;
 
 
-import mx.unam.aragon.kgdsapp.model.eder.Piloto;
-import mx.unam.aragon.kgdsapp.service.eder.PilotoService;
+import mx.unam.aragon.kgdsapp.model.f1.Piloto;
+import mx.unam.aragon.kgdsapp.service.f1.PilotoService;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,20 +21,20 @@ public class F1Controller {
     public String home(Model model) {
         List<Piloto> pilotos = pilotoService.getAllPilotos();
         model.addAttribute("pilotos", pilotos);
-        return "/eder/home";
+        return "/f1/home";
     }
 
     @GetMapping("/piloto")
     public String piloto(Model model) {
         Piloto piloto = new Piloto(1,"Oscar Piastri", "Mclaren"," Desde 2023 es piloto de McLaren en Fórmula 1, con la cual logró su primer podio en su año debut en el Gran Premio de Japón, primera victoria en el Gran Premio de Hungría de 2024, y primera pole position en el Gran Premio de China de 2025.",24, 81, "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Oscar_Piastri.png/330px-Oscar_Piastri.png");
         model.addAttribute(piloto);
-        return "/eder/piloto";
+        return "/f1/piloto";
     }
 
     @GetMapping("/nuevo")
     public String nuevo(Model model) {
         model.addAttribute("piloto", new Piloto(1,"Oscar Piastri", "Mclaren"," Desde 2023 es piloto de McLaren en Fórmula 1, con la cual logró su primer podio en su año debut en el Gran Premio de Japón, primera victoria en el Gran Premio de Hungría de 2024, y primera pole position en el Gran Premio de China de 2025.",24, 81, "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Oscar_Piastri.png/330px-Oscar_Piastri.png"));
-        return "eder/formPiloto";
+        return "f1/formPiloto";
     }
 
     @PostMapping("/guardar")
@@ -50,14 +50,14 @@ public class F1Controller {
     @GetMapping("/piloto/{id}")
     public String piloto(@PathVariable Integer id, Model model){
         model.addAttribute("piloto", pilotoService.getPiloto(id));
-        return "/eder/piloto";
+        return "/f1/piloto";
     }
 
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable Integer id, Model model) {
         Piloto piloto = pilotoService.getPiloto(id);
         model.addAttribute("piloto", piloto);
-        return "/eder/editarPiloto";
+        return "/f1/editarPiloto";
     }
 
     @PostMapping("/actualizar")
@@ -70,7 +70,7 @@ public class F1Controller {
     public String eliminar(@PathVariable Integer id, Model model) {
         Piloto piloto = pilotoService.getPiloto(id);
         model.addAttribute("piloto", piloto);
-        return "/eder/confirmarEliminar";
+        return "/f1/confirmarEliminar";
     }
 
     @PostMapping("/eliminar")

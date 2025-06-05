@@ -1,7 +1,7 @@
-package mx.unam.aragon.kgdsapp.service.diego;
+package mx.unam.aragon.kgdsapp.service.futbol;
 
-import mx.unam.aragon.kgdsapp.model.diego.Jugador;
-import mx.unam.aragon.kgdsapp.repositorie.diego.JugadorRepository;
+import mx.unam.aragon.kgdsapp.model.futbol.Jugador;
+import mx.unam.aragon.kgdsapp.repositorie.futbol.JugadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

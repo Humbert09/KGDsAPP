@@ -13,19 +13,20 @@
 <div class="container mt-4">
     <section class="mb-4">
         <p>
-            Este proyecto tiene como objetivo implementar Spring MVC + Thymeleaf para hacer Operaciones CRUD, cda miembro tiene su propio apartado con cada tema a su eleccion, disfrutenlo
+            Este proyecto tiene como objetivo implementar Spring MVC + Thymeleaf para hacer Operaciones CRUD, cada miembro realizo su propio apartado con cada tema a su eleccion, disfrutenlo.
         </p>
     </section>
 
     <section class="d-flex flex-wrap justify-content-center">
-        <div th:replace="fragments :: card(titulo='Eder',
+        <div th:replace="fragments :: card(titulo='Formula 1',
                          descripcion='Podras ver cualquier piloto de la Formula 1, incluso  agregar cualquiera a tu eleccion',
-                         imagen='https://scontent.fmex31-1.fna.fbcdn.net/v/t39.30808-6/487224655_1418168012840027_3833618772903340169_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=nf3PjtLE3r0Q7kNvwEzBU35&_nc_oc=AdlyiVuRVQkyN5OBFmlH3ifrXvx3L4uQlvEn3Ag8weSnuSEMEBZdpPUPK9vzW5GJ8_tsSM5_pWHlt_LpjC2GCauQ&_nc_zt=23&_nc_ht=scontent.fmex31-1.fna&_nc_gid=5jg7KyIotFba4lMVBAcZCA&oh=00_AfI12it-DBxdPP92uD8tz0EortHvYr_01Zz3ehhpZMeA_Q&oe=68469EE3',
-                         acciones='<a href=&quot;/paddock/home&quot; class=&quot;btn btn-primary w-100 mt-2&quot;>Ver pilotos</a>')"></div>
-        <div th:replace="fragments :: card(titulo='Beto', descripcion='Conoce a los personajes de Tom Clancy\'s Rainbow Six, agrega y edita a tus favoritos',
-                         imagen='https://scontent.fmex5-1.fna.fbcdn.net/v/t39.30808-6/474886867_620911000397345_9077503635538134488_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=TX18jdb8yFUQ7kNvwETJf42&_nc_oc=AdldhzEdyzHWVz3Oqa7SxhgPWbYRpTVkTe6LimpsKMEpJWukZgp2dvMF-Xn5wmm3cvcxSD777GQRYYjEcwsqgKE3&_nc_zt=23&_nc_ht=scontent.fmex5-1.fna&_nc_gid=7lTiVV9NHXeljWhEzFAdng&oh=00_AfLeQVr95mmdfwVM0zy4L8zfHS3BjRCS86M8e3_wawKPdQ&oe=68469CFB',
-                          acciones='<a href=&quot;/r6/home&quot; class=&quot;btn btn-primary w-100 mt-2&quot;>Ver Operadores</a>')"></div>
-        <div th:replace="fragments :: card(titulo='Diego', descripcion='Ve a tus futbolistas favoritos, agrega, edita o elimina a los que quieras.', imagen='https://scontent.fmex5-1.fna.fbcdn.net/v/t39.30808-6/277109984_2264688573679665_2800872197755126998_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=YyYL9AJ0GJ8Q7kNvwE4LXCT&_nc_oc=AdlNEV4PpyKnaLDJrM7dNFECvig7XP6BBOHCiiPTyTW0qn2hkLSydQbYlV7ABjoE9_EdhpqZ-OhCwQTiBJx9s208&_nc_zt=23&_nc_ht=scontent.fmex5-1.fna&_nc_gid=1QsXQetSTKt_G9l2LbLmhw&oh=00_AfI2kvCapj-4KiiQiep582riuhN_9XN7o9VNwKSXHJEsqA&oe=68468054',
+                         imagen='https://i.pinimg.com/originals/d4/f7/6f/d4f76f7e2cc6c8049a9c9cbecfc8e986.jpg',
+                         acciones='<a href=&quot;/paddock/home&quot; class=&quot;btn btn-primary w-100 mt-2&quot;>Ver pilotos</a>')" ></div>
+        <div th:replace="fragments :: card(titulo='Rainbow 6', descripcion='Conoce a los personajes de Tom Clancy\'s Rainbow Six, agrega y edita a tus favoritos',
+                         imagen='https://image.api.playstation.com/vulcan/img/rnd/202103/1519/1qiQsqTGnDhQ1vK4xW8Ds6Zb.png',
+                          acciones='<a href=&quot;/r6/home&quot; class=&quot;btn btn-primary w-100 mt-2&quot;>Ver Operadores</a>')" ></div>
+        <div th:replace="fragments :: card(titulo='Fútbol', descripcion='Ve a tus futbolistas favoritos, agrega, edita o elimina a los que quieras.',
+                         imagen='https://th.bing.com/th/id/R.0d7a9b362a22ffa955774db22de312d7?rik=IMO3xd3od%2bsdFA&riu=http%3a%2f%2fwww.web-futbol.com%2fwp-01%2fwp-content%2fuploads%2f2020%2f06%2fFH7353-3_imagen-del-balon-de-futbol-adidas-Uniforia-euro2020-training-2019-2020-blanco_1_frontal-1024x1024.jpg&ehk=zVLG7leRH4Py03%2faz%2b6QhsnJzbAIU3oT7%2fyu5OptnwI%3d&risl=&pid=ImgRaw&r=0',
                           acciones='<a href=&quot;/futbol/home&quot; class=&quot;btn btn-primary w-100 mt-2&quot;>Ver Jugadores</a>')"></div>
     </section>
 </div>

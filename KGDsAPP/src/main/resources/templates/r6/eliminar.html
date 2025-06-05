@@ -1,14 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="index :: head">
-    <meta charset="utf-8">
-    <title>Elimina un operador</title>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head">
+  <title>Confirmar Eliminación</title>
 </head>
 <body>
-<div th:replace="index :: navbar"></div>
-<h1>Elimina un operador</h1>
+<nav th:replace="fragments :: navbar"></nav>
 
-<footer th:replace="index :: footer"></footer>
-<div th:replace="index :: jsincludes"></div>
+<div class="container mt-5">
+  <div class="card shadow p-4">
+    <h3 class="text-danger text-center">¿Estás seguro que deseas eliminar a este operador?</h3>
+
+    <div class="mt-4">
+      <p><strong>Nombre:</strong> <span th:text="${operador.nombre}"></span></p>
+      <p><strong>Equipo:</strong> <span th:text="${operador.equipo}"></span></p>
+      <p><strong>Descripción:</strong> <span th:text="${operador.descripcion}"></span></p>
+      <p><strong>Edad:</strong> <span th:text="${operador.edad}"></span></p>
+      <p><strong>Imagen:</strong></p>
+      <img th:src="${operador.imagen}" alt="Foto del operador" class="img-thumbnail" style="max-width: 200px;">
+    </div>
+
+    <div class="mt-4 d-flex justify-content-between">
+      <a th:href="@{/r6/home}" class="btn btn-secondary">Cancelar</a>
+
+      <form th:action="@{/r6/eliminar}" method="post">
+        <input type="hidden" th:name="id" th:value="${operador.id}" />
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer th:replace="fragments :: footer"></footer>
+<div th:replace="fragments :: scripts"></div>
 </body>
 </html>
