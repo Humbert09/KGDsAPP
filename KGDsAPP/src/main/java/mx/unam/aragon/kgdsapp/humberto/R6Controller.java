@@ -1,8 +1,9 @@
-package mx.unam.aragon.kgdsapp.controller;
+package mx.unam.aragon.kgdsapp.humberto;
 
 
-import mx.unam.aragon.kgdsapp.model.Operador;
-import mx.unam.aragon.kgdsapp.service.OperadorService;
+import mx.unam.aragon.kgdsapp.model.eder.Piloto;
+import mx.unam.aragon.kgdsapp.model.humberto.Operador;
+import mx.unam.aragon.kgdsapp.service.humberto.OperadorService;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,20 +13,21 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Optional;
+import java.util.List;
 
 @Controller
-@RequestMapping("/")
-public class MainController {
+@RequestMapping("/r6")
+public class R6Controller {
 
     @Autowired
     private OperadorService operadorService;
 
-    @GetMapping("/index")
-    public String index() {
-        return "index";
+    @GetMapping("/home")
+    public String home(Model model) {
+        List<Operador> operadors = operadorService.getAllOperadores();
+        model.addAttribute("operadors", operadors);
+        return "/humberto/home";
     }
-
     @GetMapping("mostrar")
     public String mostrar(Model model) {
         Operador operador = new Operador();

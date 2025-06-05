@@ -1,11 +1,7 @@
-package mx.unam.aragon.kgdsapp.model;
+package mx.unam.aragon.kgdsapp.model.humberto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-import java.util.Locale;
 import java.util.Objects;
 
 @Entity
@@ -14,25 +10,30 @@ public class Operador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name ="nombre_operador", nullable = false, length = 100)
     private String nombre;
-    private String fechaNacimiento;
+    @Column(name = "organizacion", nullable = false, length = 50)
     private String organizacion;
+    @Column(name = "bando", nullable = false, length = 50)
     private String bando;
-    private int salud;
-    private int velocidad;
+    @Column(name = "edad", nullable = false)
+    private int edad;
+    @Column(name = "anios_r6", nullable = false)
+    private int aniosEnR6;
+    @Column(name = "url_foto", nullable = true, insertable = true, columnDefinition = "VARCHAR(350) DEFAULT 'https://png.pngtree.com/png-vector/20230407/ourmid/pngtree-placeholder-line-icon-vector-png-image_6691835.png'")
+
     private String pfp;
 
     public Operador() {
     }
 
-    public Operador(Long id, String nombre, String fechaNacimiento, String organizacion, String bando, int salud, int velocidad, String pfp) {
+    public Operador(Long id, String nombre, String organizacion, String bando, int edad, int aniosEnR6, String pfp) {
         this.id = id;
         this.nombre = nombre;
-        this.fechaNacimiento = fechaNacimiento;
         this.organizacion = organizacion;
         this.bando = bando;
-        this.salud = salud;
-        this.velocidad = velocidad;
+        this.edad = edad;
+        this.aniosEnR6 = aniosEnR6;
         this.pfp = pfp;
     }
 
@@ -52,14 +53,6 @@ public class Operador {
         this.nombre = nombre;
     }
 
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
-
     public String getOrganizacion() {
         return organizacion;
     }
@@ -76,20 +69,20 @@ public class Operador {
         this.bando = bando;
     }
 
-    public int getSalud() {
-        return salud;
+    public int getEdad() {
+        return edad;
     }
 
-    public void setSalud(int salud) {
-        this.salud = salud;
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 
-    public int getVelocidad() {
-        return velocidad;
+    public int getAniosEnR6() {
+        return aniosEnR6;
     }
 
-    public void setVelocidad(int velocidad) {
-        this.velocidad = velocidad;
+    public void setAniosEnR6(int aniosEnR6) {
+        this.aniosEnR6 = aniosEnR6;
     }
 
     public String getPfp() {
@@ -104,12 +97,12 @@ public class Operador {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Operador operador = (Operador) o;
-        return id == operador.id && salud == operador.salud && velocidad == operador.velocidad && Objects.equals(nombre, operador.nombre) && Objects.equals(fechaNacimiento, operador.fechaNacimiento) && Objects.equals(organizacion, operador.organizacion) && Objects.equals(bando, operador.bando) && Objects.equals(pfp, operador.pfp);
+        return edad == operador.edad && aniosEnR6 == operador.aniosEnR6 && Objects.equals(id, operador.id) && Objects.equals(nombre, operador.nombre) && Objects.equals(organizacion, operador.organizacion) && Objects.equals(bando, operador.bando) && Objects.equals(pfp, operador.pfp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, fechaNacimiento, organizacion, bando, salud, velocidad, pfp);
+        return Objects.hash(id, nombre, organizacion, bando, edad, aniosEnR6, pfp);
     }
 
     @Override
@@ -117,11 +110,10 @@ public class Operador {
         return "Operador{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
-                ", fechaNacimiento='" + fechaNacimiento + '\'' +
                 ", organizacion='" + organizacion + '\'' +
                 ", bando='" + bando + '\'' +
-                ", salud=" + salud +
-                ", velocidad=" + velocidad +
+                ", edad=" + edad +
+                ", aniosEnR6=" + aniosEnR6 +
                 ", pfp='" + pfp + '\'' +
                 '}';
     }
