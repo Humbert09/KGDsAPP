@@ -44,6 +44,8 @@ Este repositorio contiene el desarrollo de una aplicación web basada en Spring 
 
     Crear la Db con nombre: kgdsdb
 
+    Cambiar la contraseña que usted usa en su entorno
+
     Ejecuta la aplicación desde la clase main con Spring Boot.
 
     Accede desde tu navegador en: http://localhost:8080
