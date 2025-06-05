@@ -70,7 +70,7 @@ public class F1Controller {
     public String eliminar(@PathVariable Integer id, Model model) {
         Piloto piloto = pilotoService.getPiloto(id);
         model.addAttribute("piloto", piloto);
-        return "confirmarEliminar";
+        return "/eder/confirmarEliminar";
     }
 
     @PostMapping("/eliminar")

@@ -18,10 +18,10 @@
             titulo=${piloto.nombre},
             descripcion=${piloto.equipo},
             imagen=${piloto.imagen},
-            enlace=@{'/paddock/editar/' + ${piloto.id}}
-            )"></div>
+            acciones=${'&lt;a href=&quot;/paddock/editar/' + piloto.id + '&quot; class=&quot;btn btn-sm btn-primary me-2&quot;&gt;Editar&lt;/a&gt;' +
+                  '&lt;a href=&quot;/paddock/eliminar/' + piloto.id + '&quot; class=&quot;btn btn-sm btn-danger&quot;&gt;Eliminar&lt;/a&gt;'}
+        )"></div>
         </div>
-
     </div>
 </div>
 

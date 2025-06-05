@@ -45,8 +45,9 @@
             <h5 class="card-title" th:text="${titulo}">Título</h5>
             <p class="card-text" th:text="${descripcion}">Descripción</p>
 
-            <!-- Mostrar botón solo si hay enlace -->
-            <a th:if="${enlace != null}" th:href="${enlace}" class="btn btn-primary mt-2">Modificar</a>
+            <div th:if="${acciones != null}">
+                <div th:utext="${acciones}"></div>
+            </div>
         </div>
     </div>
 </div>
