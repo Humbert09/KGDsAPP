@@ -20,7 +20,7 @@
         </div>
 
         <div class="mt-4 d-flex justify-content-between">
-            <a th:href="@{/pilotos}" class="btn btn-secondary">Cancelar</a>
+            <a th:href="@{/paddock/home}" class="btn btn-secondary">Cancelar</a>
 
             <form th:action="@{/paddock/eliminar}" method="post">
                 <input type="hidden" th:name="id" th:value="${piloto.id}" />
