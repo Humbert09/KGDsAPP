@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/paddock")
 public class F1Controller {
@@ -16,7 +18,9 @@ public class F1Controller {
     private PilotoService pilotoService;
 
     @GetMapping("/home")
-    public String home() {
+    public String home(Model model) {
+        List<Piloto> pilotos = pilotoService.getAllPilotos();
+        model.addAttribute("pilotos", pilotos);
         return "/eder/home";
     }
 
@@ -29,7 +33,7 @@ public class F1Controller {
 
     @GetMapping("/nuevo")
     public String nuevo(Model model) {
-        model.addAttribute("piloto", new Piloto(1,"Pon uno", "Sepa",90, 0, "algo"));
+        model.addAttribute("piloto", new Piloto(1,"Oscar Piastri", "Mclaren",24, 81, "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Oscar_Piastri.png/330px-Oscar_Piastri.png"));
         return "eder/formPiloto";
     }
 
@@ -40,7 +44,7 @@ public class F1Controller {
         LoggerFactory.getLogger(getClass()).info("Guardar piloto + " + piloto);
         // mandarlo a DB
         pilotoService.guardarPiloto(piloto);
-        return "redirect:/paddock/nuevo?exito";
+        return "redirect:/paddock/home";
     }
 
     @GetMapping("/piloto/{id}")
@@ -53,7 +57,7 @@ public class F1Controller {
     public String editar(@PathVariable Integer id, Model model) {
         Piloto piloto = pilotoService.getPiloto(id);
         model.addAttribute("piloto", piloto);
-        return "editarPiloto";
+        return "/eder/editarPiloto";
     }
 
     @PostMapping("/actualizar")
@@ -67,5 +71,11 @@ public class F1Controller {
         Piloto piloto = pilotoService.getPiloto(id);
         model.addAttribute("piloto", piloto);
         return "confirmarEliminar";
+    }
+
+    @PostMapping("/eliminar")
+    public String eliminarConfirmado(@RequestParam Integer id) {
+        pilotoService.eliminarPiloto(id);
+        return "redirect:/paddock/home";
     }
 }

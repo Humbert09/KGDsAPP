@@ -25,7 +25,7 @@ public class Piloto {
     public Piloto() {
     }
 
-    public Piloto(int id, String nombre, String equipo, Integer edad, int numero, String imagen) {
+    public Piloto(int id, String nombre, String equipo, Integer edad, Integer numero, String imagen) {
         this.id = id;
         this.nombre = nombre;
         this.equipo = equipo;
@@ -66,11 +66,11 @@ public class Piloto {
         this.edad = edad;
     }
 
-    public int getNumero() {
+    public Integer getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(Integer numero) {
         this.numero = numero;
     }
 
@@ -87,7 +87,7 @@ public class Piloto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Piloto piloto = (Piloto) o;
-        return id == piloto.id && numero == piloto.numero && Objects.equals(nombre, piloto.nombre) && Objects.equals(equipo, piloto.equipo) && Objects.equals(edad, piloto.edad) && Objects.equals(imagen, piloto.imagen);
+        return id == piloto.id && Objects.equals(nombre, piloto.nombre) && Objects.equals(equipo, piloto.equipo) && Objects.equals(edad, piloto.edad) && Objects.equals(numero, piloto.numero) && Objects.equals(imagen, piloto.imagen);
     }
 
     @Override
@@ -101,7 +101,7 @@ public class Piloto {
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", equipo='" + equipo + '\'' +
-                ", edad='" + edad + '\'' +
+                ", edad=" + edad +
                 ", numero=" + numero +
                 ", imagen='" + imagen + '\'' +
                 '}';

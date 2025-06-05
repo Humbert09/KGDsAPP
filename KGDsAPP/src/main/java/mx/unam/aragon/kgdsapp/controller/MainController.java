@@ -21,7 +21,7 @@ public class MainController {
     @Autowired
     private OperadorService operadorService;
 
-    @GetMapping("/")
+    @GetMapping("/index")
     public String index() {
         return "index";
     }
