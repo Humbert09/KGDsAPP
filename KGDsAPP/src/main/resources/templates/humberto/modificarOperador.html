@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head">
+    <title>Modifica el Operador</title>
+</head>
+<body>
+<nav th:replace="fragments :: navbar"></nav>
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Modificar Operador</h2>
+
+    <form th:action="@{/r6/actualizar}" th:object="${operdador}" method="post" class="card p-4 shadow">
+        <input type="hidden" th:field="*{id}"/>
+
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" th:field="*{nombre}" class="form-control" placeholder="Nombre del operador" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Organizacion</label>
+            <input type="text" th:field="*{organizacion}" class="form-control" placeholder="Organizacion:" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="bando" class="form-label">Bando</label>
+            <input type="text" class="form-control" id="bando" th:field="*{bando}" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Edad</label>
+            <input type="number" th:field="*{edad}" class="form-control" placeholder="Edad de operador">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Años de Servicio:</label>
+            <input type="number" th:field="*{aniosEnR6}" class="form-control" placeholder="Años de servicio">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">URL de la Foto</label>
+            <input type="url" th:field="*{pfp}" class="form-control" placeholder="https://...">
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a th:href="@{/r6/home}" class="btn btn-secondary">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        </div>
+    </form>
+</div>
+
+<footer th:replace="fragments :: footer"></footer>
+<div th:replace="fragments :: scripts"></div>
+</body>
+</html>

@@ -8,10 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,37 +25,60 @@ public class R6Controller {
         model.addAttribute("operadors", operadors);
         return "/humberto/home";
     }
-    @GetMapping("mostrar")
-    public String mostrar(Model model) {
-        Operador operador = new Operador();
-        model.addAttribute("operador", operador);
-        return "mostrar";
+
+    @GetMapping("/operador")
+    public String operador(Model model) {
+    Operador operador = new Operador(1L, "Sledge", "SAS", "Ataque", 33, 10, "https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/16NXiE9PBhzEJvusXHKALJ/11ced4b21f6bde42662cfe93fee31641/R6-operator-sledge-elite.png");
+        model.addAttribute(operador);
+        return "/humberto/operador";
     }
 
-    @GetMapping("nuevo")
+    @GetMapping("/nuevo")
     public String nuevo(Model model) {
-        model.addAttribute("operador", new Operador());
-        return "nuevo";
+        model.addAttribute("operador", new Operador(1L, "Sledge", "SAS", "Ataque", 33, 10, "https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/16NXiE9PBhzEJvusXHKALJ/11ced4b21f6bde42662cfe93fee31641/R6-operator-sledge-elite.png"));
+        return "/humberto/nuevoOperador";
     }
 
     @PostMapping("/guardar")
     public String guardar(
             @ModelAttribute Operador operador
     ) {
-        LoggerFactory.getLogger(getClass()).info("Guardado exitosamente" + operador);
-        //Guardar en DB
+        LoggerFactory.getLogger(getClass()).info("Guardar operador + " + operador);
+        // mandarlo a DB
         operadorService.guardarOperador(operador);
-        return "redirect:/nuevo?exito";
+        return "redirect:/r6/home";
     }
 
-    @GetMapping("modificar")
-    public String modificar() {
-        return "modificar";
+    @GetMapping("/operador/{id}")
+    public String operador(@PathVariable Long id, Model model){
+        model.addAttribute("operador", operadorService.getOperador(id));
+        return "/humberto/operador";
     }
 
-    @GetMapping("eliminar")
-    public String eliminar() {
-        return "eliminar";
+    @GetMapping("/editar/{id}")
+    public String editar(@PathVariable Long id, Model model) {
+        Operador operador = operadorService.getOperador(id);
+        model.addAttribute("operdador", operador);
+        return "/humberto/modificarOperador";
+    }
+
+    @PostMapping("/actualizar")
+    public String actualizar(@ModelAttribute Operador operador) {
+        operadorService.guardarOperador(operador);
+        return "redirect:/r6/home";
+    }
+
+    @GetMapping("/eliminar/{id}")
+    public String eliminar(@PathVariable Long id, Model model) {
+        Operador operador = operadorService.getOperador(id);
+        model.addAttribute("operador", operador);
+        return "/humberto/eliminarOperador";
+    }
+
+    @PostMapping("/eliminar")
+    public String eliminarConfirmado(@RequestParam Long id) {
+        operadorService.eliminarOperador(id);
+        return "redirect:/r6/home";
     }
 
 
